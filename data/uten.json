@@ -1,6 +1,5 @@
 [
   {
-    "text": "Blir du stresset om morgenen?",
-    "options": ["nei","noen ganger","ja"]
+    "options": ["Nei", "Noen ganger", "Vet ikke", "Litt stressa", "Ja, veldig stressa"]
   }
 ]

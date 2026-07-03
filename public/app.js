@@ -1,57 +1,66 @@
-let pid,mode,q=[],i=0,a=[];
+let pid;
+let questions = [];
+let index = 0;
+let answers = [];
 
-function go(){
-pid=document.getElementById("pid").value;
-document.getElementById("start").style.display="none";
-document.getElementById("mode").style.display="block";
+function nextStep() {
+  pid = document.getElementById("pid").value;
+
+  document.getElementById("start").style.display = "none";
+  document.getElementById("choose").style.display = "block";
 }
 
-function start(){
-mode=document.querySelector('input[name=m]:checked').value;
+async function start(type) {
+  const res = await fetch(`/api/survey/${type}`);
+  questions = await res.json();
 
-fetch(`/data/${mode}.json`)
-.then(r=>r.json())
-.then(d=>{
-q=d;i=0;
-document.getElementById("mode").style.display="none";
-document.getElementById("q").style.display="block";
-show();
-});
+  document.getElementById("choose").style.display = "none";
+  document.getElementById("quiz").style.display = "block";
+
+  show();
 }
 
-function show(){
-document.getElementById("t").innerText=q[i].text;
+function show() {
+  document.getElementById("question").innerText =
+    `Spørsmål ${index + 1} av ${questions.length}`;
 
-let html="";
-q[i].options.forEach(o=>{
-html+=`<label><input type='radio' name='o' value='${o}'>${o}</label><br>`;
-});
+  const q = questions[index];
 
-document.getElementById("o").innerHTML=html;
+  let html = "";
+
+  q.options.forEach(o => {
+    html += `<label><input type="checkbox" value="${o}"> ${o}</label><br>`;
+  });
+
+  document.getElementById("options").innerHTML = html;
 }
 
-function next(){
-a[i]={
-answer:document.querySelector("input[name=o]:checked")?.value,
-comment:document.getElementById("c").value
-};
+function next() {
+  const selected = [...document.querySelectorAll("input:checked")]
+    .map(e => e.value);
 
-i++;
+  answers[index] = {
+    answer: selected,
+    comment: document.getElementById("comment").value
+  };
 
-if(i>=q.length){
-fetch("/submit",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({participantId:pid,mode,answers:a})
-});
+  index++;
 
-document.getElementById("q").style.display="none";
-document.getElementById("done").style.display="block";
+  if (index >= questions.length) {
+    fetch("/api/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pid, answers })
+    });
+
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("done").style.display = "block";
+  } else {
+    show();
+  }
 }
-else show();
-}
 
-function back(){
-if(i>0)i--;
-show();
+function back() {
+  if (index > 0) index--;
+  show();
 }

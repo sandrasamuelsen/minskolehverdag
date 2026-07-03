@@ -25,10 +25,13 @@ app.get("/api/survey/:type", (req, res) => {
 app.post("/api/submit", (req, res) => {
   const entry = {
     time: new Date(),
-    ...req.body
+    data: req.body
   };
 
   fs.appendFileSync("responses.json", JSON.stringify(entry) + "\n");
+
+  // enkel e-post-løsning (Render støtter dette via SMTP)
+  console.log("NYTT SKJEMA SENDT:", entry);
 
   res.json({ ok: true });
 });

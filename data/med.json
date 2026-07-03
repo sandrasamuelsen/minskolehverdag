@@ -1,5 +1,46 @@
 [
   {
+    "question": "Blir du stresset om morgenen før skolen?",
+    "type": "single",
+    "options": ["Nei", "Noen ganger", "Vet ikke", "Litt stressa", "Ja veldig"]
+  },
+  {
+    "question": "Blir du stresset av prøver og eksamen?",
+    "type": "single",
+    "options": ["Nei", "Noen ganger", "Vet ikke", "Litt", "Ja veldig"]
+  },
+  {
+    "question": "Hvor vanskelig er det å gjøre feil på skolen?",
+    "type": "single",
+    "options": ["Veldig vanskelig", "Litt vanskelig", "Vet ikke", "Greit", "Helt greit"]
+  },
+  {
+    "question": "Hva gjør skolehverdagen vanskelig?",
+    "type": "multi",
+    "options": ["Støy", "Tempo", "Språk", "Konsentrasjon", "Prøver", "Muntlige presentasjoner"]
+  },
+  {
+    "question": "Hva vil du bli flinkere til?",
+    "type": "multi",
+    "options": ["Lese", "Skrive", "Matte", "Snakke", "Jobbe alene", "Samarbeid"]
+  },
+  {
+    "question": "Har du venner på skolen?",
+    "type": "single",
+    "options": ["Nei", "Noen", "Ja"]
+  },
+  {
+    "question": "Hva gjør du i friminutt?",
+    "type": "multi",
+    "options": ["Venner", "Alene", "Telefon", "Ute", "Spill"]
+  },
+  {
+    "question": "Føler du deg trygg på skolen?",
+    "type": "single",
     "options": ["Nei", "Noen ganger", "Ja"]
+  },
+  {
+    "question": "Hva vil du gjøre etter skolen?",
+    "type": "text"
   }
 ]

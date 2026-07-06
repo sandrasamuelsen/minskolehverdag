@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="no">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +7,17 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <div class="container">
+
+        <!-- STARTSIDE -->
 
         <div id="start">
 
             <h1>Min Skolehverdag</h1>
 
-            <p>Skriv inn deltaker-ID</p>
+            <p>Skriv inn deltaker-ID:</p>
 
             <input
                 id="pid"
@@ -32,19 +32,27 @@
 
         </div>
 
+        <!-- VELG SKJEMA -->
+
         <div id="mode" style="display:none;">
 
             <h2>Velg spørreskjema</h2>
 
             <label>
-                <input type="radio" name="m" value="med">
+                <input
+                    type="radio"
+                    name="m"
+                    value="med">
                 Med karakterer
             </label>
 
             <br><br>
 
             <label>
-                <input type="radio" name="m" value="uten">
+                <input
+                    type="radio"
+                    name="m"
+                    value="uten">
                 Uten karakterer
             </label>
 
@@ -56,6 +64,8 @@
 
         </div>
 
+        <!-- SPØRSMÅL -->
+
         <div id="questionPage" style="display:none;">
 
             <p id="questionNumber"></p>
@@ -64,7 +74,7 @@
 
             <div id="answerArea"></div>
 
-            <br>
+            <br><br>
 
             <button onclick="back()">
                 Tilbake
@@ -76,11 +86,13 @@
 
         </div>
 
+        <!-- FERDIG -->
+
         <div id="done" style="display:none;">
 
-            <h2>Takk for hjelpen!</h2>
+            <h2>Takk for deltakelsen!</h2>
 
-            <p>Dine svar er registrert.</p>
+            <p>Svarene dine er lagret.</p>
 
         </div>
 
@@ -89,5 +101,4 @@
     <script src="app.js"></script>
 
 </body>
-
 </html>

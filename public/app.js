@@ -1,7 +1,5 @@
 let questions = [];
 let current = 0;
-let pid = "";
-let mode = "";
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -16,32 +14,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("questionNextBtn")
         .addEventListener("click", nextQuestion);
+
 });
 
 function go() {
 
-    pid = document.getElementById("pid").value.trim();
+    const pid =
+        document.getElementById("pid").value.trim();
 
     if (!pid) {
         alert("Skriv inn deltaker-ID");
         return;
     }
 
-    document.getElementById("start").style.display = "none";
-    document.getElementById("mode").style.display = "block";
+    document.getElementById("start").style.display =
+        "none";
+
+    document.getElementById("mode").style.display =
+        "block";
 }
 
 function startSurvey() {
 
     const selected =
-        document.querySelector('input[name="m"]:checked');
+        document.querySelector(
+            'input[name="m"]:checked'
+        );
 
     if (!selected) {
-        alert("Velg et spørreskjema");
+        alert("Velg spørreskjema");
         return;
     }
 
-    mode = selected.value;
+    const mode = selected.value;
 
     fetch("/data/" + mode + ".json")
         .then(response => response.json())
@@ -50,8 +55,11 @@ function startSurvey() {
             questions = data;
             current = 0;
 
-            document.getElementById("mode").style.display = "none";
-            document.getElementById("questionPage").style.display = "block";
+            document.getElementById("mode")
+                .style.display = "none";
+
+            document.getElementById("questionPage")
+                .style.display = "block";
 
             showQuestion();
         })
@@ -59,7 +67,9 @@ function startSurvey() {
 
             console.error(error);
 
-            alert("JSON-feil: " + error.message);
+            alert(
+                "JSON-feil: " + error.message
+            );
         });
 }
 
@@ -67,10 +77,15 @@ function showQuestion() {
 
     const q = questions[current];
 
-    document.getElementById("questionNumber").innerText =
-        "Spørsmål " + (current + 1) + " av " + questions.length;
+    document.getElementById("questionNumber")
+        .innerText =
+        "Spørsmål " +
+        (current + 1) +
+        " av " +
+        questions.length;
 
-    document.getElementById("questionText").innerText =
+    document.getElementById("questionText")
+        .innerText =
         q.text;
 
     let html = "";
@@ -81,11 +96,13 @@ function showQuestion() {
 
             html += `
                 <label>
-                    <input type="radio"
-                           name="answer"
-                           value="${option}">
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="${option}">
                     ${option}
-                </label><br>
+                </label>
+                <br>
             `;
         });
     }
@@ -96,24 +113,68 @@ function showQuestion() {
 
             html += `
                 <label>
-                    <input type="checkbox"
-                           name="answer"
-                           value="${option}">
+                    <input
+                        type="checkbox"
+                        name="answer"
+                        value="${option}">
                     ${option}
-                </label><br>
+                </label>
+                <br>
             `;
         });
     }
 
     else if (q.type === "text") {
 
-        html = `
+        html += `
             <textarea
-                id="textAnswer"
                 rows="5"
                 style="width:100%;"
                 placeholder="Skriv svaret ditt her">
             </textarea>
         `;
     }
+
+    if (q.type !== "text") {
+
+        html += `
+            <br><br>
+
+            <strong>
+                Kommentar (valgfritt)
+            </strong>
+
+            <br>
+
+            <textarea
+                rows="4"
+                style="width:100%;"
+                placeholder="Skriv kommentar her">
+            </textarea>
+        `;
+    }
+
+    document.getElementById("answerArea")
+        .innerHTML = html;
+}
+
+function nextQuestion() {
+
+    current++;
+
+    if (current >= questions.length) {
+
+        document.getElementById("questionPage")
+            .style.display = "none";
+
+        document.getElementById("done")
+            .style.display = "block";
+
+        return;
+    }
+
+    showQuestion();
+}
+
+function previousQuestion() {
 

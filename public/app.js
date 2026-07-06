@@ -61,7 +61,7 @@ function startSurvey() {
 
             console.error(error);
 
-            alert("Feil i JSON-filen");
+            alert("JSON-feil: " + error.message);
         });
 }
 
@@ -109,8 +109,7 @@ function showQuestion() {
             '<textarea id="textAnswer" rows="5" style="width:100%;"></textarea>';
     }
 
-    document.getElementById("answerArea").innerHTML =
-        html;
+    document.getElementById("answerArea").innerHTML = html;
 }
 
 function getAnswer() {
@@ -120,9 +119,7 @@ function getAnswer() {
     if (q.type === "radio") {
 
         const selected =
-            document.querySelector(
-                'input[name="answer"]:checked'
-            );
+            document.querySelector('input[name="answer"]:checked');
 
         return selected ? selected.value : "";
     }
@@ -130,12 +127,8 @@ function getAnswer() {
     if (q.type === "checkbox") {
 
         return Array.from(
-            document.querySelectorAll(
-                'input[name="answer"]:checked'
-            )
-        ).map(function (item) {
-            return item.value;
-        });
+            document.querySelectorAll('input[name="answer"]:checked')
+        ).map(item => item.value);
     }
 
     if (q.type === "text") {

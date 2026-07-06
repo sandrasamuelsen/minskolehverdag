@@ -1,91 +1,225 @@
 let pid;
+let mode;
 let questions = [];
-let index = 0;
+let current = 0;
 let answers = [];
 
-function nextStep() {
-  pid = document.getElementById("pid").value;
+function go() {
+    pid = document.getElementById("pid").value.trim();
 
-  document.getElementById("start").style.display = "none";
-  document.getElementById("choose").style.display = "block";
+    if (!pid) {
+        alert("Skriv inn deltaker-ID");
+        return;
+    }
+
+    document.getElementById("start").style.display = "none";
+    document.getElementById("mode").style.display = "block";
 }
 
-async function start(type) {
-  const res = await fetch(`/api/survey/${type}`);
-  questions = await res.json();
+function start() {
+    const selected = document.querySelector("input[name=m]:checked");
 
-  document.getElementById("choose").style.display = "none";
-  document.getElementById("quiz").style.display = "block";
+    if (!selected) {
+        alert("Velg skjema");
+        return;
+    }
 
-  show();
+    mode = selected.value;
+
+    fetch(`/data/${mode}.json`)
+        .then(r => r.json())
+        .then(data => {
+            questions = data;
+            current = 0;
+
+            document.getElementById("mode").style.display = "none";
+            document.getElementById("questionPage").style.display = "block";
+
+            showQuestion();
+        });
 }
 
-function show() {
-  const q = questions[index];
+function showQuestion() {
 
- document.getElementById("question").innerHTML = `
-<h2>Spørsmål ${index + 1} av ${questions.length}</h2>
-<p>${q.question}</p>
-`;
+    const q = questions[current];
 
-  let html = "";
+    document.getElementById("questionNumber").innerText =
+        `Spørsmål ${current + 1} av ${questions.length}`;
 
-  if (q.type === "single") {
-    q.options.forEach(o => {
-      html += `<label><input type="radio" name="opt" value="${o}"> ${o}</label>`;
-    });
-  }
+    document.getElementById("questionText").innerText = q.text;
 
-  if (q.type === "multi") {
-    q.options.forEach(o => {
-      html += `<label><input type="checkbox" value="${o}"> ${o}</label>`;
-    });
-  }
+    const area = document.getElementById("answerArea");
 
-  if (q.type === "text") {
-    html += `<textarea id="textAnswer"></textarea>`;
-  }
+    let html = "";
 
-  document.getElementById("options").innerHTML = html;
+    if (q.type === "radio") {
+        q.options.forEach(option => {
+            html += `
+            <label>
+              <input type="radio" name="answer" value="${option}">
+              ${option}
+            </label><br>
+            `;
+        });
+    }
+
+    else if (q.type === "checkbox") {
+        q.options.forEach(option => {
+            html += `
+            <label>
+              <input type="checkbox" name="answer" value="${option}">
+              ${option}
+            </label><br>
+            `;
+        });
+    }
+
+    else if (q.type === "text") {
+        html = `
+            <textarea
+                id="textAnswer"
+                rows="6"
+                placeholder="Skriv svaret ditt her..."
+            ></textarea>
+        `;
+    }
+
+    else if (q.type === "scale") {
+
+        html = `<div class="scale">`;
+
+        for (let i = q.min; i <= q.max; i++) {
+            html += `
+                <label>
+                    <input type="radio"
+                           name="answer"
+                           value="${i}">
+                    ${i}
+                </label>
+            `;
+        }
+
+        html += `</div>`;
+    }
+
+    area.innerHTML = html;
+
+    if (answers[current]) {
+        restoreAnswer();
+    }
+}
+
+function restoreAnswer() {
+
+    const saved = answers[current];
+
+    if (!saved) return;
+
+    if (Array.isArray(saved)) {
+
+        saved.forEach(value => {
+
+            const el =
+                document.querySelector(
+                    `input[value="${value}"]`
+                );
+
+            if (el) el.checked = true;
+        });
+
+    } else {
+
+        const radio =
+            document.querySelector(
+                `input[value="${saved}"]`
+            );
+
+        if (radio) radio.checked = true;
+
+        const text =
+            document.getElementById("textAnswer");
+
+        if (text) text.value = saved;
+    }
+}
+
+function collectAnswer() {
+
+    const q = questions[current];
+
+    if (q.type === "radio" || q.type === "scale") {
+
+        const selected =
+            document.querySelector(
+                "input[name=answer]:checked"
+            );
+
+        return selected ? selected.value : null;
+    }
+
+    if (q.type === "checkbox") {
+
+        return Array.from(
+            document.querySelectorAll(
+                "input[name=answer]:checked"
+            )
+        ).map(x => x.value);
+    }
+
+    if (q.type === "text") {
+
+        return document
+            .getElementById("textAnswer")
+            .value;
+    }
+
+    return null;
 }
 
 function next() {
-  let answer = [];
 
-  const radios = document.querySelectorAll('input[type="radio"]:checked');
-  const checks = document.querySelectorAll('input[type="checkbox"]:checked');
+    answers[current] = collectAnswer();
 
-  if (radios.length > 0) {
-    answer = radios[0].value;
-  } else if (checks.length > 0) {
-    answer = [...checks].map(c => c.value);
-  } else {
-    const text = document.getElementById("textAnswer");
-    if (text) answer = text.value;
-  }
+    current++;
 
-  answers[index] = {
-    question: questions[index].question,
-    answer
-  };
+    if (current >= questions.length) {
 
-  index++;
+        fetch("/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                participantId: pid,
+                mode,
+                answers
+            })
+        })
+        .then(() => {
 
-  if (index >= questions.length) {
-    fetch("/api/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ pid, answers })
-    });
+            document.getElementById(
+                "questionPage"
+            ).style.display = "none";
 
-    document.getElementById("quiz").style.display = "none";
-    document.getElementById("done").style.display = "block";
-  } else {
-    show();
-  }
+            document.getElementById(
+                "done"
+            ).style.display = "block";
+        });
+
+        return;
+    }
+
+    showQuestion();
 }
 
 function back() {
-  if (index > 0) index--;
-  show();
+
+    if (current === 0) return;
+
+    answers[current] = collectAnswer();
+
+    current--;
+
+    showQuestion();
 }
+``

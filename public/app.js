@@ -52,6 +52,5 @@ function showQuestion() {
         </textarea>
     `;
 
-    document.getElementById("answerArea").innerHTML =
-        html;
+    document.getElementById("answerArea").innerHTML = html;
 }

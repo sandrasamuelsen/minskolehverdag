@@ -79,9 +79,14 @@
     "type": "radio",
     "options": ["Ikke lett", "Litt lett", "Vet ikke", "Ganske enkelt", "Veldig enkelt"]
   },
-  {
-    "text": "Liker du best å skrive på PC/Mac eller på papir med penn/blyant?",
-    "type": "radio",
-    "options": ["PC/Mac", "Papir med penn/blyant"]
-  },
-  {
+ {
+  "text": "Liker du best å skrive på PC/Mac eller på papir med penn/blyant?",
+  "type": "radio",
+  "options": ["PC/Mac", "Papir med penn/blyant"]
+},
+{
+  "text": "Hvor vanskelig er det for deg å lese eller snakke høyt i klassen?",
+  "type": "radio",
+  "options": ["Ikke lett", "Litt lett", "Vet ikke", "Ganske enkelt", "Veldig enkelt"]
+}
+]

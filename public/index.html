@@ -1,72 +1,81 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min Skolehverdag</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Min Skolehverdag</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-    <div id="start">
-        <h1>Min Skolehverdag</h1>
+  <div id="start">
+    <h1>Min Skolehverdag</h1>
 
-        <p>Deltaker-ID</p>
+    <p>Deltaker-ID</p>
 
-        <input
-            type="text"
-            id="pid"
-            placeholder="Skriv inn deltaker-ID">
+    <input
+      type="text"
+      id="pid"
+      placeholder="Skriv inn deltaker-ID">
 
-        <br><br>
+    <br><br>
 
-        <button onclick="go()">
-            Neste
-        </button>
-    </div>
+    <button id="nextBtn">
+      Neste
+    </button>
+  </div>
 
-    <div id="mode" style="display:none;">
-        <h2>Velg spørreskjema</h2>
+  <div id="mode" style="display:none;">
 
-        <label>
-            <input type="radio" name="m" value="med">
-            Med karakterer
-        </label>
+    <h2>Velg spørreskjema</h2>
 
-        <br><br>
+    <label>
+      <input type="radio" name="m" value="med">
+      Med karakterer
+    </label>
 
-        <label>
-            <input type="radio" name="m" value="uten">
-            Uten karakterer
-        </label>
+    <br><br>
 
-        <br><br>
+    <label>
+      <input type="radio" name="m" value="uten">
+      Uten karakterer
+    </label>
 
-        <button onclick="start()">
-            Start
-        </button>
-    </div>
+    <br><br>
 
-    <div id="questionPage" style="display:none;">
-        <p id="questionNumber"></p>
+    <button id="startBtn">
+      Start
+    </button>
 
-        <h2 id="questionText"></h2>
+  </div>
 
-        <div id="answerArea"></div>
+  <div id="questionPage" style="display:none;">
 
-        <br><br>
+    <p id="questionNumber"></p>
 
-        <button onclick="back()">Tilbake</button>
-        <button onclick="next()">Neste</button>
-    </div>
+    <h2 id="questionText"></h2>
 
-    <div id="done" style="display:none;">
-        <h2>Takk for deltakelsen!</h2>
-        <p>Svarene dine er lagret.</p>
-    </div>
+    <div id="answerArea"></div>
+
+    <br><br>
+
+    <button id="backBtn">
+      Tilbake
+    </button>
+
+    <button id="questionNextBtn">
+      Neste
+    </button>
+
+  </div>
+
+  <div id="done" style="display:none;">
+    <h2>Takk for deltakelsen!</h2>
+    <p>Svarene dine er lagret.</p>
+  </div>
 
 </div>
 

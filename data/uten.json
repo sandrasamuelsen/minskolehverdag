@@ -5,26 +5,14 @@
     "options": ["Nei","Noen ganger","Vet ikke","Litt stressa","Ja, veldig stressa"]
   },
   {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
     "text": "Blir skoledagen din slitsom hvis du har sovet lite dagen før?",
     "type": "radio",
     "options": ["Nei","Noen ganger","Vet ikke","Litt","Ja, veldig"]
   },
   {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
     "text": "Er det noe hjemme om morgenen som kan være stressende?",
     "type": "radio",
     "options": ["Nei","Noen ganger","Vet ikke","Litt stress","Ja, veldig stress"]
-  },
-  {
-    "text": "Kan du si noe mer?",
-    "type": "text"
   },
   {
     "text": "Er det stressende for deg å komme seg til og fra skolen?",
@@ -39,10 +27,6 @@
     "text": "Er det stressende å komme inn på skolen alene og gå inn i klasserommet/avdeling?",
     "type": "radio",
     "options": ["Nei","Noen ganger","Vet ikke","Litt stress","Ja, veldig stress"]
-  },
-  {
-    "text": "Kan du si noe mer?",
-    "type": "text"
   },
   {
     "text": "Blir du plaget av støy (snakking, lyder) i klasserommet ditt?",
@@ -70,17 +54,9 @@
     "options": ["Ikke lett","Litt lett","Vet ikke","Ganske lett","Veldig lett"]
   },
   {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
     "text": "Hvor lett er det å arbeide med en oppgave i gruppe med andre?",
     "type": "radio",
     "options": ["Ikke lett","Litt lett","Vet ikke","Ganske lett","Veldig lett"]
-  },
-  {
-    "text": "Kan du si noe mer?",
-    "type": "text"
   },
   {
     "text": "Er det lett å skrive tekster på skolen?",
@@ -98,17 +74,9 @@
     "options": ["Nei, det liker jeg ikke","Bare hvis jeg må","Vet ikke","Ja, noen ganger","Ja, hver dag"]
   },
   {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
     "text": "Hvor vanskelig er det for meg å si ifra til lærer hvis jeg ikke forstår?",
     "type": "radio",
     "options": ["Ikke lett","Litt lett","Vet ikke","Ganske enkelt","Veldig enkelt"]
-  },
-  {
-    "text": "Kan du si noe mer?",
-    "type": "text"
   },
   {
     "text": "Hvor ofte er oppgavene for lette for deg når læreren gir deg oppgaver?",
@@ -116,26 +84,14 @@
     "options": ["Aldri","Sjeldent","Vet ikke","Ofte","Veldig ofte"]
   },
   {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
     "text": "Hvor ofte er oppgavene for vanskelige for deg i undervisningen?",
     "type": "radio",
     "options": ["Aldri","Sjeldent","Vet ikke","Ofte","Veldig ofte"]
   },
   {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
     "text": "Synes du det er trist eller flaut å gjøre feil på skolen?",
     "type": "radio",
     "options": ["Veldig","Litt","Vet ikke","Det går greit","Det går veldig fint"]
-  },
-  {
-    "text": "Kan du si noe mer?",
-    "type": "text"
   },
   {
     "text": "Hvor godt liker du fagene dine fra 1 til 10?",
@@ -149,17 +105,9 @@
     "options": ["Nei","Noen ganger","Vet ikke","Ofte","Ja, alltid"]
   },
   {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
     "text": "Jeg spør lærer om hjelp hvis jeg ikke forstår hva jeg skal gjøre i undervisningen.",
     "type": "radio",
     "options": ["Nei","Noen ganger","Vet ikke","Ja, innimellom","Ja, alltid"]
-  },
-  {
-    "text": "Kan du si noe mer?",
-    "type": "text"
   },
   {
     "text": "Forstår lærerne dine hvordan du har det på skolen?",
@@ -167,26 +115,14 @@
     "options": ["Nei","Noen ganger","Vet ikke","Ganske ofte","Ja, veldig godt"]
   },
   {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
     "text": "Er det voksne på skolen du føler forstår deg og kan hjelpe deg når noe blir vanskelig?",
     "type": "radio",
     "options": ["Nei","Noen ganger","Vet ikke","Ganske ofte","Ja, veldig godt"]
   },
   {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
     "text": "Blir du sliten av å være på skolen?",
     "type": "radio",
     "options": ["Nei","Noen ganger","Vet ikke","Ganske sliten","Ja, veldig sliten"]
-  },
-  {
-    "text": "Kan du si noe mer?",
-    "type": "text"
   },
   {
     "text": "Hvis du blir stresset, hva trenger du for å roe ned?",
@@ -205,118 +141,3 @@
     ]
   },
   {
-    "text": "Hva gjør du når du blir stresset eller sliten på skolen?",
-    "type": "checkbox",
-    "options": [
-      "Går ut av timen",
-      "Snakker med en voksen",
-      "Bruker PC/telefon",
-      "Blir stille",
-      "Annet"
-    ]
-  },
-  {
-    "text": "Kan du si noe mer?",
-    "type": "text"
-  },
-  {
-    "text": "Hvordan lærer du best når du skal lære nye ting?",
-    "type": "checkbox",
-    "options": [
-      "Lærer forklarer muntlig",
-      "Bilder/video",
-      "Få eksempler",
-      "Jobbe praktisk",
-      "Jobbe alene",
-      "Jobbe med andre",
-      "Tydelig plan",
-      "Ekstra tid"
-    ]
-  },
-  {
-    "text": "Hva kan gjøre skolehverdagen vanskelig for deg?",
-    "type": "checkbox",
-    "options": [
-      "For mye støy",
-      "For mange beskjeder",
-      "For høyt tempo",
-      "Vanskelig språk",
-      "Vanskelig å konsentrere seg",
-      "Gruppeoppgaver",
-      "Snakke høyt foran andre",
-      "Vikar eller ny lærer",
-      "Toalettene",
-      "Å spise",
-      "Rombytte",
-      "For mange mennesker",
-      "Brannalarmen"
-    ]
-  },
-  {
-    "text": "Hva ønsker du å bli flinkere til på skolen?",
-    "type": "checkbox",
-    "options": [
-      "Lese",
-      "Skrive",
-      "Matte",
-      "Snakke høyt i timen",
-      "Jobbe alene",
-      "Jobbe sammen med andre",
-      "Følge med i timen",
-      "Møte opp på skolen",
-      "Få flere venner"
-    ]
-  },
-  {
-    "text": "Har du venner på skolen?",
-    "type": "radio",
-    "options": ["Nei","Noen","Vet ikke","Ja, noen","Ja, mange"]
-  },
-  {
-    "text": "Hva liker du å gjøre i friminuttene?",
-    "type": "checkbox",
-    "options": [
-      "Være alene",
-      "Snakke med venner",
-      "Bruke telefon/PC",
-      "Høre på musikk",
-      "Gå en tur",
-      "Være inne",
-      "Være ute",
-      "Spille spill/leke",
-      "Spise/slappe av"
-    ]
-  },
-  {
-    "text": "Føler du deg trygg på skolen?",
-    "type": "radio",
-    "options": ["Nei","Noen ganger","Vet ikke","Ofte","Ja, alltid"]
-  },
-  {
-    "text": "Hva er du flink til på skolen?",
-    "type": "checkbox",
-    "options": [
-      "Lese",
-      "Skrive",
-      "Matte",
-      "Praktiske oppgaver",
-      "Bruke PC",
-      "Hjelpe andre",
-      "Samarbeide",
-      "Jobbe alene",
-      "Møte opp på skolen",
-      "Følge regler og rutiner",
-      "Være kreativ",
-      "Kroppsøving",
-      "Muntlige oppgaver",
-      "Huske ting",
-      "Tegne/male",
-      "Være snill mot andre"
-    ]
-  },
-  {
-    "text": "Hva vil du gjøre når du er ferdig på skolen og har blitt voksen? For eksempel jobb?",
-    "type": "text"
-  }
-]
-``

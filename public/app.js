@@ -9,21 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const backBtn = document.getElementById("backBtn");
     const questionNextBtn = document.getElementById("questionNextBtn");
 
-    if (nextBtn) {
-        nextBtn.addEventListener("click", go);
-    }
+    if (nextBtn) nextBtn.addEventListener("click", go);
+    if (startBtn) startBtn.addEventListener("click", startSurvey);
+    if (backBtn) backBtn.addEventListener("click", previousQuestion);
+    if (questionNextBtn) questionNextBtn.addEventListener("click", nextQuestion);
 
-    if (startBtn) {
-        startBtn.addEventListener("click", startSurvey);
-    }
-
-    if (backBtn) {
-        backBtn.addEventListener("click", previousQuestion);
-    }
-
-    if (questionNextBtn) {
-        questionNextBtn.addEventListener("click", nextQuestion);
-    }
 });
 
 function go() {
@@ -41,9 +31,8 @@ function go() {
 
 function startSurvey() {
 
-    const selected = document.querySelector(
-        'input[name="m"]:checked'
-    );
+    const selected =
+        document.querySelector('input[name="m"]:checked');
 
     if (!selected) {
         alert("Velg spørreskjema");
@@ -91,3 +80,217 @@ function showQuestion() {
         q.options.forEach(option => {
 
             html += `
+                <label>
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="${option}">
+                    ${option}
+                </label>
+                <br>
+            `;
+
+        });
+
+    }
+
+    else if (q.type === "checkbox") {
+
+        q.options.forEach(option => {
+
+            html += `
+                <label>
+                    <input
+                        type="checkbox"
+                        name="answer"
+                        value="${option}">
+                    ${option}
+                </label>
+                <br>
+            `;
+
+        });
+
+    }
+
+    else if (q.type === "text") {
+
+        html += `
+            <textarea
+                id="mainAnswer"
+                rows="5"
+                style="width:100%;"
+                placeholder="Skriv svaret ditt her"></textarea>
+        `;
+
+    }
+
+    else if (q.type === "scale") {
+
+        let i = current;
+
+        while (
+            i < questions.length &&
+            questions[i].type === "scale"
+        ) {
+
+            html += `
+                <div style="margin-bottom:25px;">
+
+                    <strong>
+                        ${questions[i].text}
+                    </strong>
+
+                    <br><br>
+
+                    <input
+                        type="range"
+                        min="${questions[i].min}"
+                        max="${questions[i].max}"
+                        value="5"
+                        id="scaleAnswer${i}"
+                        style="width:100%;">
+
+                    <div>
+                        ${questions[i].min} - ${questions[i].max}
+                    </div>
+
+                </div>
+            `;
+
+            i++;
+        }
+    }
+
+    html += `
+        <br><br>
+
+        <strong>Vil du si noe mer?</strong>
+
+        <br>
+
+        <textarea
+            id="extraComment"
+            rows="4"
+            style="width:100%;"
+            placeholder="Skriv her hvis du vil utdype svaret ditt"></textarea>
+    `;
+
+    document.getElementById("answerArea").innerHTML = html;
+}
+
+function nextQuestion() {
+
+    const q = questions[current];
+
+    let answer = "";
+
+    if (q.type === "radio") {
+
+        const selected =
+            document.querySelector(
+                'input[name="answer"]:checked'
+            );
+
+        answer = selected ? selected.value : "";
+    }
+
+    else if (q.type === "checkbox") {
+
+        answer = [];
+
+        document
+            .querySelectorAll(
+                'input[name="answer"]:checked'
+            )
+            .forEach(item => {
+
+                answer.push(item.value);
+
+            });
+
+    }
+
+    else if (q.type === "text") {
+
+        const text =
+            document.getElementById("mainAnswer");
+
+        answer = text ? text.value : "";
+
+    }
+
+    else if (q.type === "scale") {
+
+        answer = {};
+
+        let i = current;
+
+        while (
+            i < questions.length &&
+            questions[i].type === "scale"
+        ) {
+
+            const slider =
+                document.getElementById(
+                    `scaleAnswer${i}`
+                );
+
+            answer[
+                questions[i].text
+            ] = slider
+                ? slider.value
+                : "";
+
+            i++;
+        }
+    }
+
+    const comment =
+        document.getElementById("extraComment")
+            ? document.getElementById("extraComment").value
+            : "";
+
+    answers.push({
+        question: q.text,
+        answer: answer,
+        comment: comment
+    });
+
+    if (q.type === "scale") {
+
+        while (
+            current < questions.length &&
+            questions[current].type === "scale"
+        ) {
+
+            current++;
+        }
+
+    } else {
+
+        current++;
+    }
+
+    if (current >= questions.length) {
+
+        console.log("Svar lagret:", answers);
+
+        document.getElementById("questionPage").style.display = "none";
+        document.getElementById("done").style.display = "block";
+
+        return;
+    }
+
+    showQuestion();
+}
+
+function previousQuestion() {
+
+    if (current > 0) {
+
+        current--;
+        showQuestion();
+
+    }
+}

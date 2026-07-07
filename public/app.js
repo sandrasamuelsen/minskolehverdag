@@ -115,13 +115,12 @@ function showQuestion() {
 
     else if (q.type === "text") {
 
-        html += `
-            <textarea
-                id="mainAnswer"
-                rows="5"
-                style="width:100%;"
-                placeholder="Skriv svaret ditt her"></textarea>
-        `;
+    html += `
+    <textarea
+        id="mainAnswer"
+        rows="5"
+        style="width:100%;"></textarea>
+`;
     }
 
     else if (q.type === "scale") {

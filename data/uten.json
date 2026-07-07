@@ -88,30 +88,64 @@
     "type": "radio",
     "options": ["Aldri","Sjeldent","Vet ikke","Ofte","Veldig ofte"]
   },
-{
-  "text": "Synes du det er trist eller flaut å gjøre feil på skolen?",
-  "type": "radio",
-  "options": ["Veldig","Litt","Vet ikke","Det går greit","Det går veldig fint"]
-},
-{
-  "text": "Hvor godt liker du norsk fra 1 til 10?",
-  "type": "scale",
-  "min": 1,
-  "max": 10
-},
-{
-  "text": "Hvor godt liker du engelsk fra 1 til 10?",
-  "type": "scale",
-  "min": 1,
-  "max": 10
-},
-{
-  "text": "Hvor godt liker du matematikk fra 1 til 10?",
-  "type": "scale",
-  "min": 1,
-  "max": 10
-},
-...
+  {
+    "text": "Synes du det er trist eller flaut å gjøre feil på skolen?",
+    "type": "radio",
+    "options": ["Veldig","Litt","Vet ikke","Det går greit","Det går veldig fint"]
+  },
+  {
+    "text": "Hvor godt liker du norsk fra 1 til 10?",
+    "type": "scale",
+    "min": 1,
+    "max": 10
+  },
+  {
+    "text": "Hvor godt liker du engelsk fra 1 til 10?",
+    "type": "scale",
+    "min": 1,
+    "max": 10
+  },
+  {
+    "text": "Hvor godt liker du matematikk fra 1 til 10?",
+    "type": "scale",
+    "min": 1,
+    "max": 10
+  },
+  {
+    "text": "Hvor godt liker du naturfag fra 1 til 10?",
+    "type": "scale",
+    "min": 1,
+    "max": 10
+  },
+  {
+    "text": "Hvor godt liker du samfunnskunnskap fra 1 til 10?",
+    "type": "scale",
+    "min": 1,
+    "max": 10
+  },
+  {
+    "text": "Hvor godt liker du historie fra 1 til 10?",
+    "type": "scale",
+    "min": 1,
+    "max": 10
+  },
+  {
+    "text": "Hvor godt liker du geografi fra 1 til 10?",
+    "type": "scale",
+    "min": 1,
+    "max": 10
+  },
+  {
+    "text": "Hvor godt liker du religion og etikk fra 1 til 10?",
+    "type": "scale",
+    "min": 1,
+    "max": 10
+  },
+  {
+    "text": "Hvor godt liker du kroppsøving fra 1 til 10?",
+    "type": "scale",
+    "min": 1,
+    "max": 10
   },
   {
     "text": "Jeg forstår hva lærerne sier til meg i timen.",
@@ -141,77 +175,27 @@
   {
     "text": "Hvis du blir stresset, hva trenger du for å roe ned?",
     "type": "checkbox",
-    "options": [
-      "Pause",
-      "Gå ut av klasserommet",
-      "Være alene",
-      "Snakke med en voksen",
-      "Høre på musikk",
-      "Bruke PC/telefon",
-      "Få forklaring en gang til",
-      "Roligere sted",
-      "Mer tid",
-      "Vet ikke"
-    ]
+    "options": ["Pause","Gå ut av klasserommet","Være alene","Snakke med en voksen","Høre på musikk","Bruke PC/telefon","Få forklaring en gang til","Roligere sted","Mer tid","Vet ikke"]
   },
   {
     "text": "Hva gjør du når du blir stresset eller sliten på skolen?",
     "type": "checkbox",
-    "options": [
-      "Går ut av timen",
-      "Snakker med en voksen",
-      "Bruker PC/telefon",
-      "Blir stille",
-      "Annet"
-    ]
+    "options": ["Går ut av timen","Snakker med en voksen","Bruker PC/telefon","Blir stille","Annet"]
   },
   {
     "text": "Hvordan lærer du best når du skal lære nye ting?",
     "type": "checkbox",
-    "options": [
-      "Lærer forklarer muntlig",
-      "Bilder/video",
-      "Få eksempler",
-      "Jobbe praktisk",
-      "Jobbe alene",
-      "Jobbe med andre",
-      "Tydelig plan",
-      "Ekstra tid"
-    ]
+    "options": ["Lærer forklarer muntlig","Bilder/video","Få eksempler","Jobbe praktisk","Jobbe alene","Jobbe med andre","Tydelig plan","Ekstra tid"]
   },
   {
     "text": "Hva kan gjøre skolehverdagen vanskelig for deg?",
     "type": "checkbox",
-    "options": [
-      "For mye støy",
-      "For mange beskjeder",
-      "For høyt tempo",
-      "Vanskelig språk",
-      "Vanskelig å konsentrere seg",
-      "Gruppeoppgaver",
-      "Snakke høyt foran andre",
-      "Vikar eller ny lærer",
-      "Toalettene",
-      "Å spise",
-      "Rombytte",
-      "For mange mennesker",
-      "Brannalarmen"
-    ]
+    "options": ["For mye støy","For mange beskjeder","For høyt tempo","Vanskelig språk","Vanskelig å konsentrere seg","Gruppeoppgaver","Snakke høyt foran andre","Vikar eller ny lærer","Toalettene","Å spise","Rombytte","For mange mennesker","Brannalarmen"]
   },
   {
     "text": "Hva ønsker du å bli flinkere til på skolen?",
     "type": "checkbox",
-    "options": [
-      "Lese",
-      "Skrive",
-      "Matte",
-      "Snakke høyt i timen",
-      "Jobbe alene",
-      "Jobbe sammen med andre",
-      "Følge med i timen",
-      "Møte opp på skolen",
-      "Få flere venner"
-    ]
+    "options": ["Lese","Skrive","Matte","Snakke høyt i timen","Jobbe alene","Jobbe sammen med andre","Følge med i timen","Møte opp på skolen","Få flere venner"]
   },
   {
     "text": "Har du venner på skolen?",
@@ -221,17 +205,7 @@
   {
     "text": "Hva liker du å gjøre i friminuttene?",
     "type": "checkbox",
-    "options": [
-      "Være alene",
-      "Snakke med venner",
-      "Bruke telefon/PC",
-      "Høre på musikk",
-      "Gå en tur",
-      "Være inne",
-      "Være ute",
-      "Spille spill/leke",
-      "Spise/slappe av"
-    ]
+    "options": ["Være alene","Snakke med venner","Bruke telefon/PC","Høre på musikk","Gå en tur","Være inne","Være ute","Spille spill/leke","Spise/slappe av"]
   },
   {
     "text": "Føler du deg trygg på skolen?",
@@ -241,24 +215,7 @@
   {
     "text": "Hva er du flink til på skolen?",
     "type": "checkbox",
-    "options": [
-      "Lese",
-      "Skrive",
-      "Matte",
-      "Praktiske oppgaver",
-      "Bruke PC",
-      "Hjelpe andre",
-      "Samarbeide",
-      "Jobbe alene",
-      "Møte opp på skolen",
-      "Følge regler og rutiner",
-      "Være kreativ",
-      "Kroppsøving",
-      "Muntlige oppgaver",
-      "Huske ting",
-      "Tegne/male",
-      "Være snill mot andre"
-    ]
+    "options": ["Lese","Skrive","Matte","Praktiske oppgaver","Bruke PC","Hjelpe andre","Samarbeide","Jobbe alene","Møte opp på skolen","Følge regler og rutiner","Være kreativ","Kroppsøving","Muntlige oppgaver","Huske ting","Tegne/male","Være snill mot andre"]
   },
   {
     "text": "Hva vil du gjøre når du er ferdig på skolen og har blitt voksen? For eksempel jobb?",

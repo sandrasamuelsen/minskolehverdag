@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = document.getElementById("nextBtn");
     const startBtn = document.getElementById("startBtn");
     const backBtn = document.getElementById("backBtn");
-    const questionNextBtn =
-        document.getElementById("questionNextBtn");
+    const questionNextBtn = document.getElementById("questionNextBtn");
 
     if (nextBtn) {
         nextBtn.addEventListener("click", go);
@@ -27,3 +26,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+function go() {
+
+    const pid = document.getElementById("pid").value.trim();
+
+    if (!pid) {
+        alert("Skriv inn deltaker-ID");
+        return;
+    }
+
+    document.getElementById("start").style.display = "none";
+    document.getElementById("mode").style.display = "block";
+}
+
+function startSurvey() {
+
+    const selected = document.querySelector(
+        'input[name="m"]:checked'
+    );
+
+    if (!selected) {
+        alert("Velg spørreskjema");
+        return;
+    }
+
+    const mode = selected.value;
+
+    fetch("/data/" + mode + ".json")
+        .then(response => response.json())
+        .then(data => {
+
+            questions = data;
+            current = 0;
+            answers = [];
+
+            document.getElementById("mode").style.display = "none";
+            document.getElementById("questionPage").style.display = "block";
+
+            showQuestion();
+        })
+        .catch(error => {
+
+            console.error(error);
+
+            alert(

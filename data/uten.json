@@ -92,7 +92,7 @@
   "text": "Synes du det er trist eller flaut å gjøre feil på skolen?",
   "type": "radio",
   "options": ["Veldig","Litt","Vet ikke","Det går greit","Det går veldig fint"]
-}
+},
 {
   "text": "Hvor godt liker du norsk fra 1 til 10?",
   "type": "scale",

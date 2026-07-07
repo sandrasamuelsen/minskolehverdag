@@ -141,3 +141,113 @@
     ]
   },
   {
+    "text": "Hva gjør du når du blir stresset eller sliten på skolen?",
+    "type": "checkbox",
+    "options": [
+      "Går ut av timen",
+      "Snakker med en voksen",
+      "Bruker PC/telefon",
+      "Blir stille",
+      "Annet"
+    ]
+  },
+  {
+    "text": "Hvordan lærer du best når du skal lære nye ting?",
+    "type": "checkbox",
+    "options": [
+      "Lærer forklarer muntlig",
+      "Bilder/video",
+      "Få eksempler",
+      "Jobbe praktisk",
+      "Jobbe alene",
+      "Jobbe med andre",
+      "Tydelig plan",
+      "Ekstra tid"
+    ]
+  },
+  {
+    "text": "Hva kan gjøre skolehverdagen vanskelig for deg?",
+    "type": "checkbox",
+    "options": [
+      "For mye støy",
+      "For mange beskjeder",
+      "For høyt tempo",
+      "Vanskelig språk",
+      "Vanskelig å konsentrere seg",
+      "Gruppeoppgaver",
+      "Snakke høyt foran andre",
+      "Vikar eller ny lærer",
+      "Toalettene",
+      "Å spise",
+      "Rombytte",
+      "For mange mennesker",
+      "Brannalarmen"
+    ]
+  },
+  {
+    "text": "Hva ønsker du å bli flinkere til på skolen?",
+    "type": "checkbox",
+    "options": [
+      "Lese",
+      "Skrive",
+      "Matte",
+      "Snakke høyt i timen",
+      "Jobbe alene",
+      "Jobbe sammen med andre",
+      "Følge med i timen",
+      "Møte opp på skolen",
+      "Få flere venner"
+    ]
+  },
+  {
+    "text": "Har du venner på skolen?",
+    "type": "radio",
+    "options": ["Nei","Noen","Vet ikke","Ja, noen","Ja, mange"]
+  },
+  {
+    "text": "Hva liker du å gjøre i friminuttene?",
+    "type": "checkbox",
+    "options": [
+      "Være alene",
+      "Snakke med venner",
+      "Bruke telefon/PC",
+      "Høre på musikk",
+      "Gå en tur",
+      "Være inne",
+      "Være ute",
+      "Spille spill/leke",
+      "Spise/slappe av"
+    ]
+  },
+  {
+    "text": "Føler du deg trygg på skolen?",
+    "type": "radio",
+    "options": ["Nei","Noen ganger","Vet ikke","Ofte","Ja, alltid"]
+  },
+  {
+    "text": "Hva er du flink til på skolen?",
+    "type": "checkbox",
+    "options": [
+      "Lese",
+      "Skrive",
+      "Matte",
+      "Praktiske oppgaver",
+      "Bruke PC",
+      "Hjelpe andre",
+      "Samarbeide",
+      "Jobbe alene",
+      "Møte opp på skolen",
+      "Følge regler og rutiner",
+      "Være kreativ",
+      "Kroppsøving",
+      "Muntlige oppgaver",
+      "Huske ting",
+      "Tegne/male",
+      "Være snill mot andre"
+    ]
+  },
+  {
+    "text": "Hva vil du gjøre når du er ferdig på skolen og har blitt voksen? For eksempel jobb?",
+    "type": "text"
+  }
+]

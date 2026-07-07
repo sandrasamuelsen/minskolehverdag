@@ -170,6 +170,8 @@ function showQuestion() {
         }
     }
 
+if (current !== 37) {
+
     html += `
         <br><br>
 
@@ -183,7 +185,7 @@ function showQuestion() {
             style="width:100%;"
             placeholder="Skriv her hvis du vil utdype svaret ditt"></textarea>
     `;
-
+}
     document.getElementById("answerArea").innerHTML = html;
 }
 

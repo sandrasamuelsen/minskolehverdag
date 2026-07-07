@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (questionNextBtn) {
         questionNextBtn.addEventListener("click", nextQuestion);
     }
-
 });
 
 function go() {
@@ -42,8 +41,9 @@ function go() {
 
 function startSurvey() {
 
-    const selected =
-        document.querySelector('input[name="m"]:checked');
+    const selected = document.querySelector(
+        'input[name="m"]:checked'
+    );
 
     if (!selected) {
         alert("Velg spørreskjema");
@@ -90,3 +90,152 @@ function showQuestion() {
 
         q.options.forEach(option => {
 
+            html += `
+                <label>
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="${option}">
+                    ${option}
+                </label>
+                <br>
+            `;
+        });
+
+    } else if (q.type === "checkbox") {
+
+        q.options.forEach(option => {
+
+            html += `
+                <label>
+                    <input
+                        type="checkbox"
+                        name="answer"
+                        value="${option}">
+                    ${option}
+                </label>
+                <br>
+            `;
+        });
+
+    } else if (q.type === "text") {
+
+        html += `
+            <textarea
+                id="mainAnswer"
+                rows="5"
+                style="width:100%;"
+                placeholder="Skriv svaret ditt her"></textarea>
+        `;
+
+    } else if (q.type === "scale") {
+
+        html += `
+            <input
+                type="range"
+                min="${q.min}"
+                max="${q.max}"
+                value="${q.min}"
+                id="scaleAnswer"
+                style="width:100%;">
+
+            <p>Verdi fra ${q.min} til ${q.max}</p>
+        `;
+    }
+
+    html += `
+        <br><br>
+
+        <strong>Vil du si noe mer?</strong>
+
+        <br>
+
+        <textarea
+            id="extraComment"
+            rows="4"
+            style="width:100%;"
+            placeholder="Skriv her hvis du vil utdype svaret ditt"></textarea>
+    `;
+
+    document.getElementById("answerArea").innerHTML = html;
+}
+
+function nextQuestion() {
+
+    const q = questions[current];
+
+    let answer = "";
+
+    if (q.type === "radio") {
+
+        const selected =
+            document.querySelector(
+                'input[name="answer"]:checked'
+            );
+
+        answer = selected ? selected.value : "";
+
+    } else if (q.type === "checkbox") {
+
+        answer = [];
+
+        document
+            .querySelectorAll(
+                'input[name="answer"]:checked'
+            )
+            .forEach(item => {
+
+                answer.push(item.value);
+
+            });
+
+    } else if (q.type === "text") {
+
+        const text =
+            document.getElementById("mainAnswer");
+
+        answer = text ? text.value : "";
+
+    } else if (q.type === "scale") {
+
+        const scale =
+            document.getElementById("scaleAnswer");
+
+        answer = scale ? scale.value : "";
+    }
+
+    const comment =
+        document.getElementById("extraComment")
+            ? document.getElementById("extraComment").value
+            : "";
+
+    answers.push({
+        question: q.text,
+        answer: answer,
+        comment: comment
+    });
+
+    current++;
+
+    if (current >= questions.length) {
+
+        console.log("Svar lagret:", answers);
+
+        document.getElementById("questionPage").style.display = "none";
+        document.getElementById("done").style.display = "block";
+
+        return;
+    }
+
+    showQuestion();
+}
+
+function previousQuestion() {
+
+    if (current > 0) {
+
+        current--;
+        showQuestion();
+
+    }
+}

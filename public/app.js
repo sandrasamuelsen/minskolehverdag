@@ -42,9 +42,8 @@ function go() {
 
 function startSurvey() {
 
-    const selected = document.querySelector(
-        'input[name="m"]:checked'
-    );
+    const selected =
+        document.querySelector('input[name="m"]:checked');
 
     if (!selected) {
         alert("Velg spørreskjema");
@@ -91,8 +90,3 @@ function showQuestion() {
 
         q.options.forEach(option => {
 
-            html += `
-                <label>
-                    <input
-                        type="radio"
-                        name="answer"

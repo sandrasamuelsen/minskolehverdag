@@ -89,13 +89,10 @@ function showQuestion() {
                         value="${option}">
                     ${option}
                 </label>
-                <br>
             `;
         });
 
-    }
-
-    else if (q.type === "checkbox") {
+    } else if (q.type === "checkbox") {
 
         q.options.forEach(option => {
 
@@ -107,125 +104,94 @@ function showQuestion() {
                         value="${option}">
                     ${option}
                 </label>
-                <br>
             `;
         });
 
-    }
-
-    else if (q.type === "text") {
-
-    html += `
-    <textarea
-        id="mainAnswer"
-        rows="5"
-        style="width:100%;"></textarea>
-`;
-    }
-
-    else if (q.type === "scale") {
-
-    html += `
-        <h3>
-            Hvor godt liker du disse fagene?
-        </h3>
-
-        <p>
-            1 = liker lite, 10 = liker best
-        </p>
-    `;
-
-    let i = current;
-
-    while (
-        i < questions.length &&
-        questions[i].type === "scale"
-    ) {
+    } else if (q.type === "text") {
 
         html += `
-        <div style="margin-bottom:25px;">
-
-            <label style="font-weight:600;">
-                ${questions[i].text}
-            </label>
-
-            <input
-                type="range"
-                min="${questions[i].min}"
-                max="${questions[i].max}"
-                value="5"
-                id="scaleAnswer${i}"
-                class="scale-slider"
-                oninput="updateScaleValue(${i}, this.value)">
-
-            <div
-                id="numbers${i}"
-                class="scale-numbers">
-
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span class="active">5</span>
-                <span>6</span>
-                <span>7</span>
-                <span>8</span>
-                <span>9</span>
-                <span>10</span>
-
-            </div>
-
-        </div>
+            <textarea
+                id="mainAnswer"
+                rows="5"
+                style="width:100%;"></textarea>
         `;
 
-        i++;
-    }
-}
+    } else if (q.type === "scale") {
+
+        html += `
+            <h3>
+                Hvor godt liker du disse fagene?
+            </h3>
+
+            <p>
+                1 = liker lite, 10 = liker best
+            </p>
+        `;
+
+        let i = current;
+
+        while (
+            i < questions.length &&
+            questions[i].type === "scale"
+        ) {
 
             html += `
-                <div style="margin-bottom:25px;">
+            <div style="margin-bottom:25px;">
 
-                    <strong>
-                        ${questions[i].text}
-                    </strong>
+                <label style="font-weight:600;">
+                    ${questions[i].text}
+                </label>
 
-                    <br><br>
+                <input
+                    type="range"
+                    min="${questions[i].min}"
+                    max="${questions[i].max}"
+                    value="5"
+                    id="scaleAnswer${i}"
+                    class="scale-slider"
+                    oninput="updateScaleValue(${i}, this.value)">
 
-                    <input
-                        type="range"
-                        min="${questions[i].min}"
-                        max="${questions[i].max}"
-                        value="5"
-                        id="scaleAnswer${i}"
-                        style="width:100%;">
+                <div
+                    id="numbers${i}"
+                    class="scale-numbers">
 
-                    <div>
-                        ${questions[i].min} - ${questions[i].max}
-                    </div>
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span class="active">5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
 
                 </div>
+
+            </div>
             `;
 
             i++;
         }
     }
 
-if (current !== 37) {
+    if (current !== 37) {
 
-    html += `
-        <br><br>
+        html += `
+            <br><br>
 
-        <strong>Vil du si noe mer?</strong>
+            <strong>Vil du si noe mer?</strong>
 
-        <br>
+            <br>
 
-        <textarea
-            id="extraComment"
-            rows="4"
-            style="width:100%;"
-            placeholder="Skriv her hvis du vil utdype svaret ditt"></textarea>
-    `;
-}
+            <textarea
+                id="extraComment"
+                rows="4"
+                style="width:100%;"
+                placeholder="Skriv her hvis du vil utdype svaret ditt"></textarea>
+        `;
+    }
+
     document.getElementById("answerArea").innerHTML = html;
 }
 
@@ -243,9 +209,8 @@ function nextQuestion() {
             );
 
         answer = selected ? selected.value : "";
-    }
 
-    else if (q.type === "checkbox") {
+    } else if (q.type === "checkbox") {
 
         answer = [];
 
@@ -258,17 +223,15 @@ function nextQuestion() {
                 answer.push(item.value);
 
             });
-    }
 
-    else if (q.type === "text") {
+    } else if (q.type === "text") {
 
         const text =
             document.getElementById("mainAnswer");
 
         answer = text ? text.value : "";
-    }
 
-    else if (q.type === "scale") {
+    } else if (q.type === "scale") {
 
         answer = {};
 
@@ -328,8 +291,8 @@ function nextQuestion() {
 
     showQuestion();
 }
+
 function previousQuestion() {
- function previousQuestion() {
 
     if (
         document.getElementById("questionPage").style.display !== "none"
@@ -368,4 +331,4 @@ function updateScaleValue(index, value) {
     });
 
     numbers[value - 1].classList.add("active");
-} 
+}

@@ -204,16 +204,20 @@ hr {
     margin-top: 12px;
 }
 
+.scale-numbers span.active {
+    background: #2563eb;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 999px;
+    transform: translateY(-10px);
+
+}
 .scale-numbers span {
     color: #64748b;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 500;
     transition: all 0.2s ease;
-}
 
-.scale-numbers span.active {
-    color: #2563eb;
-    font-size: 26px;
-    font-weight: 700;
-    transform: translateY(-6px);
 }

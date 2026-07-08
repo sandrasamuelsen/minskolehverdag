@@ -151,22 +151,18 @@ function showQuestion() {
                     class="scale-slider"
                     oninput="updateScaleValue(${i}, this.value)">
 
-                <div
-                    id="numbers${i}"
-                    class="scale-numbers">
-
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span class="active">5</span>
-                    <span>6</span>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-
-                </div>
+              <div id="numbers${i}" class="scale-numbers">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span class="active">5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span>
+    <span>9</span>
+    <span>10</span>
+</div>
 
             </div>
             `;

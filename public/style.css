@@ -141,7 +141,6 @@ hr {
     border-top: 1px solid var(--border);
     margin: 20px 0;
 }
-
 @media (max-width: 768px) {
     .container {
         padding: 24px;
@@ -156,9 +155,12 @@ hr {
         width: 100%;
         margin-right: 0;
     }
+}
+
 .welcome-box {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
+    border-left: 5px solid #2563eb;
     border-radius: 16px;
     padding: 24px;
     margin-bottom: 30px;
@@ -177,9 +179,6 @@ hr {
 .welcome-box hr {
     margin: 24px 0;
 }
-    .welcome-box {
-    border-left: 5px solid #2563eb;
-}
 
 .steps-box {
     background: #f8fafc;
@@ -193,41 +192,39 @@ hr {
     background: #eff6ff;
     border: 2px solid #bfdbfe;
 }
+
+/* ===== SKALA ===== */
+
+.scale-wrapper {
+    width: 100%;
+}
+
 .scale-slider {
     width: 100%;
+    margin: 0;
 }
 
 .scale-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
 
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
 
     border-radius: 50%;
-
     background: #2563eb;
-    border: 5px solid white;
-
-    box-shadow:
-        0 0 0 6px rgba(37,99,235,0.25),
-        0 6px 16px rgba(37,99,235,0.35);
+    border: 3px solid white;
 
     cursor: pointer;
 }
 
 .scale-slider::-moz-range-thumb {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
 
     border-radius: 50%;
-
     background: #2563eb;
-    border: 5px solid white;
-
-    box-shadow:
-        0 0 0 6px rgba(37,99,235,0.25),
-        0 6px 16px rgba(37,99,235,0.35);
+    border: 3px solid white;
 
     cursor: pointer;
 }
@@ -236,8 +233,8 @@ hr {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     width: 100%;
-    margin-top: 10px;
     text-align: center;
+    margin-top: 10px;
 }
 
 .scale-numbers span {
@@ -250,11 +247,8 @@ hr {
 .scale-numbers span.active {
     background: #2563eb;
     color: white;
-
-    padding: 4px 0;
-
     border-radius: 8px;
-
     font-size: 22px;
     font-weight: 800;
+    padding: 4px 0;
 }

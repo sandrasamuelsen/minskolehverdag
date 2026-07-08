@@ -322,72 +322,43 @@ function nextQuestion() {
     showQuestion();
 }
 function previousQuestion() {
-    function updateScaleValue(index, value) {
+ function previousQuestion() {
 
-    const numbers =
-        document.querySelectorAll(
-            `#numbers${index} span`
-        );
+    if (
+        document.getElementById("questionPage").style.display !== "none"
+    ) {
 
-    numbers.forEach(number => {
-        number.classList.remove("active");
-    });
-
-    numbers[value - 1].classList.add("active");
-}
-```[1](https://udeoslokommuneno-my.sharepoint.com/personal/sasaa189_osloskolen_no/Documents/Microsoft%20Copilot%20Chat-filer/app.js)
-
----
-
-# Steg 4 – Åpne `style.css`
-
-Gå helt nederst i filen. [2](https://udeoslokommuneno-my.sharepoint.com/personal/sasaa189_osloskolen_no/Documents/Microsoft%20Copilot%20Chat-filer/style.css)
-
-Legg til:
-
-```css
-.scale-numbers {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 12px;
-}
-
-.scale-numbers span {
-    color: #64748b;
-    font-size: 16px;
-    font-weight: 400;
-    transition: all 0.2s ease;
-}
-
-.scale-numbers span.active {
-    color: #2563eb;
-    font-size: 26px;
-    font-weight: 700;
-    transform: translateY(-6px);
-}
-
-    // Hvis vi er inne på spørsmålssiden
-    if (document.getElementById("questionPage").style.display !== "none") {
-
-        // Gå tilbake et spørsmål
         if (current > 0) {
+
             current--;
             showQuestion();
-        }
 
-        // Hvis vi står på første spørsmål
-        else {
+        } else {
+
             document.getElementById("questionPage").style.display = "none";
             document.getElementById("mode").style.display = "block";
+
         }
 
-    }
-
-    // Hvis vi er på siden for valg av spørreskjema
-    else if (document.getElementById("mode").style.display !== "none") {
+    } else if (
+        document.getElementById("mode").style.display !== "none"
+    ) {
 
         document.getElementById("mode").style.display = "none";
         document.getElementById("start").style.display = "block";
 
     }
 }
+
+function updateScaleValue(index, value) {
+
+    const numbers = document.querySelectorAll(
+        `#numbers${index} span`
+    );
+
+    numbers.forEach(number => {
+        number.classList.remove("active");
+    });
+
+    numbers[value - 1].classList.add("active");
+} 

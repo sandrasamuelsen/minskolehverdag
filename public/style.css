@@ -41,7 +41,6 @@ h1 {
 
 h2 {
     margin-bottom: 20px;
-    color: var(--text);
 }
 
 p {
@@ -61,8 +60,8 @@ textarea {
     border: 1px solid var(--border);
     border-radius: 12px;
     font-size: 15px;
+    background: white;
     transition: all 0.2s ease;
-    background: #fff;
 }
 
 input[type="text"]:focus,
@@ -84,12 +83,10 @@ label {
     border: 1px solid var(--border);
     border-radius: 12px;
     cursor: pointer;
-    transition: 0.2s ease;
 }
 
 label:hover {
     background: #f8fafc;
-    border-color: var(--primary);
 }
 
 input[type="radio"],
@@ -106,18 +103,12 @@ button {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
     margin-right: 10px;
     margin-top: 10px;
 }
 
 button:hover {
     background: var(--primary-hover);
-    transform: translateY(-1px);
-}
-
-button:active {
-    transform: translateY(0);
 }
 
 #backBtn {
@@ -141,21 +132,6 @@ hr {
     border-top: 1px solid var(--border);
     margin: 20px 0;
 }
-@media (max-width: 768px) {
-    .container {
-        padding: 24px;
-        border-radius: 16px;
-    }
-
-    h1 {
-        font-size: 1.7rem;
-    }
-
-    button {
-        width: 100%;
-        margin-right: 0;
-    }
-}
 
 .welcome-box {
     background: #f8fafc;
@@ -166,26 +142,8 @@ hr {
     margin-bottom: 30px;
 }
 
-.welcome-box h2 {
-    margin-top: 0;
-    color: #2563eb;
-}
-
-.welcome-box p {
-    line-height: 1.7;
-    margin-bottom: 14px;
-}
-
-.welcome-box hr {
-    margin: 24px 0;
-}
-
 .steps-box {
     background: #f8fafc;
-}
-
-.steps-box p {
-    font-weight: 500;
 }
 
 .login-section {
@@ -197,51 +155,20 @@ hr {
 
 .scale-wrapper {
     width: 100%;
-    padding: 0 12px;
+    margin-top: 10px;
 }
 
 .scale-slider {
     width: 100%;
-    margin: 0;
-    cursor: pointer;
-}
-
-.scale-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-
-    width: 28px;
-    height: 28px;
-
-    border-radius: 50%;
-
-    background: #2563eb;
-    border: 3px solid white;
-
-    box-shadow: 0 0 0 3px rgba(37,99,235,0.25);
-
-    cursor: pointer;
-}
-
-.scale-slider::-moz-range-thumb {
-    width: 28px;
-    height: 28px;
-
-    border-radius: 50%;
-
-    background: #2563eb;
-    border: 3px solid white;
-
     cursor: pointer;
 }
 
 .scale-numbers {
-    width: 100%;
-
     display: grid;
     grid-template-columns: repeat(10, 1fr);
 
-    margin-top: 10px;
+    width: 100%;
+    margin-top: 12px;
 
     text-align: center;
 }
@@ -250,7 +177,6 @@ hr {
     color: #cbd5e1;
     font-size: 24px;
     font-weight: 600;
-
     transition: all 0.2s ease;
 }
 
@@ -265,22 +191,28 @@ hr {
 
     padding: 4px 0;
 }
-```[2](https://udeoslokommuneno-my.sharepoint.com/personal/sasaa189_osloskolen_no/Documents/Microsoft%20Copilot%20Chat-filer/style.css)[1](https://udeoslokommuneno-my.sharepoint.com/personal/sasaa189_osloskolen_no/Documents/Microsoft%20Copilot%20Chat-filer/app.js)
 
-### Veldig viktig
+@media (max-width: 768px) {
 
-I `app.js` må denne delen fortsatt være nøyaktig slik:
+    .container {
+        padding: 24px;
+        border-radius: 16px;
+    }
 
-```js
-<div id="numbers${i}" class="scale-numbers">
-    <span>1</span>
-    <span>2</span>
-    <span>3</span>
-    <span>4</span>
-    <span class="active">5</span>
-    <span>6</span>
-    <span>7</span>
-    <span>8</span>
-    <span>9</span>
-    <span>10</span>
-</div>
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    button {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .scale-numbers span {
+        font-size: 18px;
+    }
+
+    .scale-numbers span.active {
+        font-size: 18px;
+    }
+}

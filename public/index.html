@@ -1,114 +1,101 @@
 <!DOCTYPE html>
 <html lang="no">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Min Skolehverdag</title>
-
-    <link rel="stylesheet" href="style.css">
+    style.css
 </head>
-
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div id="start">
+    <!-- STARTSIDE -->
+    <div id="start">
 
-<h1>🏫 Min Skolehverdag 🏫</h1>
+        <h1>🏫 Min Skolehverdag 🏫</h1>
 
-<div class="welcome-box">
+        <div class="welcome-box">
+            <h3>Du skal svare på noen spørsmål om skolehverdagen din</h3>
 
-    <h3>Du skal svare på noen spørsmål om skolehverdagen din</h3>
-
-    <p>✅ Det er frivillig å delta</p>
-
-    <p>✅ Du kan hoppe over spørsmål</p>
-
-    <p>✅ Ingen riktige eller gale svar </p>
-   
-    <p>✅ På spørsmål der du kan velge flere alternativer, kan du krysse av så mange svar du ønsker.</p>
-  
-    <p>✅ Det tar inntil 20 minutter å svare på alt </p>
-
-    <p>✅Svarene brukes for å hjelpe skolen med å forstå hvordan du har det på skolen.</p>
-
-</div>
-
-    <p><strong>Kandidatnummer</strong></p>
-<div class="login-row">
-
-    <input
-        type="text"
-        id="pid"
-        placeholder="Skriv inn nummeret du har fått">
-
-    <button id="nextBtn">
-        Jeg er klar
-    </button>
-
-</div>
-
-        <div id="mode" style="display:none;">
-
-            <h2>Velg spørreskjema</h2>
-
-            <label>
-                <input type="radio" name="m" value="med">
-                Med karakterer
-            </label>
-
-            <br><br>
-
-            <label>
-                <input type="radio" name="m" value="uten">
-                Uten karakterer
-            </label>
-
-            <br><br>
-<button id="modeBackBtn">
-    Tilbake
-</button>
-
-<button id="startBtn">
-    Start
-</button>
-
+            <p>✅ Det er frivillig å delta</p>
+            <p>✅ Du kan hoppe over spørsmål</p>
+            <p>✅ Ingen riktige eller gale svar</p>
+            <p>✅ På spørsmål der du kan velge flere alternativer, kan du krysse av så mange svar du ønsker.</p>
+            <p>✅ Det tar inntil 20 minutter å svare på alt</p>
+            <p>✅ Svarene brukes for å hjelpe skolen med å forstå hvordan du har det på skolen.</p>
         </div>
 
-        <div id="questionPage" style="display:none;">
-            <div id="questionPage">
+        <p><strong>Kandidatnummer</strong></p>
 
-            <p id="questionNumber"></p>
+        <div class="login-row">
+            <input
+                type="text"
+                id="pid"
+                placeholder="Skriv inn nummeret du har fått">
 
-            <h2 id="questionText"></h2>
-
-            <div id="answerArea"></div>
-
-            <br><br>
-
-            <button id="backBtn">
-                Tilbake
+            <button id="nextBtn">
+                Jeg er klar
             </button>
-
-            <button id="questionNextBtn">
-                Neste
-            </button>
-
-        </div>
-
-        <div id="done" style="display:none;">
-
-            <h2>Takk for svarene dine!</h2>
-
-            <p>Svarene dine er registrert.</p>
-
         </div>
 
     </div>
 
-    <script src="app.js"></script>
+    <!-- VALG AV SKJEMA -->
+    <div id="mode" style="display:none;">
+
+        <h2>Velg spørreskjema</h2>
+
+        <label>
+            <input type="radio" name="m" value="med">
+            Med karakterer
+        </label>
+
+        <label>
+            <input type="radio" name="m" value="uten">
+            Uten karakterer
+        </label>
+
+        <button id="modeBackBtn" onclick="location.reload()">
+            Tilbake
+        </button>
+
+        <button id="startBtn">
+            Start
+        </button>
+
+    </div>
+
+    <!-- SPØRSMÅL -->
+    <div id="questionPage" style="display:none;">
+
+        <p id="questionNumber"></p>
+
+        <h2 id="questionText"></h2>
+
+        <div id="answerArea"></div>
+
+        <br><br>
+
+        <button id="backBtn">
+            Tilbake
+        </button>
+
+        <button id="questionNextBtn">
+            Neste
+        </button>
+
+    </div>
+
+    <!-- FERDIG -->
+    <div id="done" style="display:none;">
+        <h2>Takk for svarene dine!</h2>
+        <p>Svarene dine er registrert.</p>
+    </div>
+
+</div>
+
+app.js
 
 </body>
-
 </html>

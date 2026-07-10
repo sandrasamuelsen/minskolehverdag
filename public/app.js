@@ -272,15 +272,38 @@ function nextQuestion() {
         current++;
     }
 
-    if (current >= questions.length) {
+ if (current >= questions.length) {
 
-        console.log("Svar lagret:", answers);
+    fetch("/submit", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            kandidatnummer: document.getElementById("pid").value,
+            tidspunkt: new Date().toISOString(),
+            svar: answers
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        console.log("Svar sendt til server:", data);
 
         document.getElementById("questionPage").style.display = "none";
         document.getElementById("done").style.display = "block";
 
-        return;
-    }
+    })
+    .catch(error => {
+
+        console.error("Feil ved lagring:", error);
+
+        alert("Kunne ikke lagre svarene.");
+
+    });
+
+    return;
+}
 
     showQuestion();
 }
